@@ -12,7 +12,7 @@ A battery manager based on Aosp theme. to convert your stock Android ui into aos
 
 To install My Awesome Android App, follow these steps:
 
-1. Download the APK file from realeases.
+1. Download the APK file from realeases(https://github.com/ShabdVasudeva/AospBatterManager/releases).
 2. Allow installation from unknown sources in your device settings.
 3. Open the APK file to install the app.
 
