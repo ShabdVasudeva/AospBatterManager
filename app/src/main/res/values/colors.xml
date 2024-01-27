@@ -1,23 +1,9 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-  <!-- Base application theme. -->
-  <style name="Base.AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:statusBarColor">?attr/colorSurfaceContainer</item>
-        <item name="android:navigationBarColor">?attr/colorSurfaceContainer</item>
-        <item name="android:windowLightStatusBar">true</item>
-    <item name="colorPrimary">@color/overlay_light_primary</item>
-  </style>
-  <style name="AppTheme" parent="Base.AppTheme" />
-        <style name="Theme.Apw.ToolbarCollapsed" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textSize">20sp</item>
-    </style>
-
-    <style name="Theme.Apw.ToolbarExpanded" parent="Theme.Apw.ToolbarCollapsed">
-        <item name="android:textSize">36sp</item>
-        <item name="android:drawablePadding">10dp</item>
-    </style>
-        <style name="TextAppearance.Widget.Event.Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textStyle">normal</item>
-        <item name="android:fontFamily">sans-serif</item>
-    </style>
-</resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="overlay_light_primary">#9C4146</color>
+    <color name="overlay_light_onPrimary">#FFFFFF</color> 
+    <color name= "overlay_light_primaryContainer">#FFDADB</color>
+    <color name="overlay_light_onPrimaryContainer">#400008</color>
+    <color name="status">?attr/colorSurfaceContainer</color>
+    <color name="back">?attr/colorPrimaryContainer</color>
+</resources >
