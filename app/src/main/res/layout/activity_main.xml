@@ -1,18 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="?attr/colorSurfaceContainer"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        app:titleTextAppearance="@style/TextAppearance.Widget.Event.Toolbar.Title"
+        android:fitsSystemWindows="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_height="179dp"
+            android:layout_width="match_parent"
+            app:expandedTitleTextAppearance="@style/Theme.Apw.ToolbarExpanded"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            android:elevation="0dp"
+            app:expandedTitleGravity="bottom"
+            app:titleCollapseMode="scale"
+            app:statusBarScrim="?attr/colorSurfaceContainer"
+            app:contentScrim="?attr/colorSurfaceContainer"
+            android:background="?attr/colorSurfaceContainer"
+            app:collapsedTitleTextAppearance="@style/Theme.Apw.ToolbarCollapsed"
+            style="?attr/collapsingToolbarLayoutLargeStyle"
+            app:expandedTitleMarginBottom="31dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                ="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                android:elevation="0dp"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/back"
+                android:id="@+id/toolbar" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="75dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/percentage" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="30dp"
+                    android:layout_gravity="bottom"
+                    android:text="%" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:scaleY="5"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:id="@+id/progressbar" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/advice" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:background="?attr/colorErrorContainer"
+                    android:layout_margin="15dp"
+                    style="?attr/materialCardViewFilledStyle"
+                    android:id="@+id/card">
+
+                    <LinearLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:textSize="20dp"
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:text="Battery status" />
+
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:textSize="12dp"
+                                android:layout_marginLeft="10dp"
+                                android:id="@+id/status" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            app:dividerInsetEnd="18dp"
+                            android:id="@+id/divide"
+                            app:dividerInsetStart="18dp" />
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+                            android:orientation="horizontal"
+                            android:id="@+id/savepwr">
+
+                            <LinearLayout
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="wrap_content"
+                                    android:textSize="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:textStyle="bold"
+                                    android:text="Power saver" />
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:textSize="12dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Turn on power saver" />
+
+                            </LinearLayout>
+
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:id="@+id/powersv"
+                                android:layout_marginLeft="110dp"
+                                style="@style/Widget.Material3.CompoundButton.MaterialSwitch" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            app:dividerInsetEnd="18dp"
+                            app:dividerInsetStart="18dp"
+                            android:id="@+id/divide2" />
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="wrap_content"
+                                    android:textSize="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:textStyle="bold"
+                                    android:text="Battery technology" />
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:textSize="12dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:id="@+id/tech" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            app:dividerInsetEnd="18dp"
+                            android:id="@+id/divide3"
+                            app:dividerInsetStart="18dp" />
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="wrap_content"
+                                    android:textSize="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:textStyle="bold"
+                                    android:text="Health" />
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:textSize="12dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:id="@+id/hlth" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            app:dividerInsetEnd="18dp"
+                            android:id="@+id/divide4"
+                            app:dividerInsetStart="18dp" />
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="wrap_content"
+                                    android:textSize="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:textStyle="bold"
+                                    android:text="Battery temperature" />
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:textSize="12dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:id="@+id/temp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            app:dividerInsetEnd="18dp"
+                            android:id="@+id/divide5"
+                            app:dividerInsetStart="18dp" />
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+                            android:id="@+id/usage"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="wrap_content"
+                                    android:textSize="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:textStyle="bold"
+                                    android:text="Battery usage" />
+
+                                <TextView
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:textSize="12dp"
+                                    android:text="See the battery usage by apps"
+                                    android:layout_marginLeft="10dp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/info"
+                    android:id="@+id/info"
+                    android:layout_marginLeft="15dp" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Remaining battery life is approximate and can change based on usage" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
