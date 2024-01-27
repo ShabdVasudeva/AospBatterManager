@@ -1,46 +1,48 @@
-@file:Suppress("UnstableApiUsage")
 
 plugins {
     id("com.android.application")
-    kotlin("android")
+    
 }
 
 android {
-    namespace = "com.example.myfirstapp"
+    namespace = "org.aospbased.battery"
     compileSdk = 33
+    
     defaultConfig {
-        applicationId = "com.example.myfirstapp"
-        minSdk = 23
+        applicationId = "org.aospbased.battery"
+        minSdk = 21
         targetSdk = 33
         versionCode = 1
-        versionName = "1.0-${System.getenv("VERSION_SHA")}"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
-            )
+        versionName = "1.0"
+        
+        vectorDrawables { 
+            useSupportLibrary = true
         }
     }
+    
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-}
 
-kotlin {
-    jvmToolchain(17)
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+
+    buildFeatures {
+        viewBinding = true
+        
+    }
+    
 }
 
 dependencies {
+
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
-    androidTestImplementation("androidx.test:runner:1.5.2")
-    androidTestImplementation("androidx.test.ext:junit-ktx:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation("com.google.android.material:material:1.9.0")
 }
